@@ -9,8 +9,7 @@ namespace NotesToUniverse.DataAccess.Abstract
 {
     public interface IRepository<T> where T : class
     {
-        int Insert(T obj);
-        int Save();
+        int Create(T obj);
         int Update(T obj);
         int Delete(T obj);
 

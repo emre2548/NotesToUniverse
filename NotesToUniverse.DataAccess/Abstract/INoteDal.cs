@@ -7,8 +7,8 @@ using NotesToUniverse.Entities;
 
 namespace NotesToUniverse.DataAccess.Abstract
 {
-    public interface ICategoryDal : IRepository<Category>
+    public interface INoteDal : IRepository<Note>
     {
-        //List<Category> GetCategories();
+        //List<Note> GetAllNote();
     }
 }

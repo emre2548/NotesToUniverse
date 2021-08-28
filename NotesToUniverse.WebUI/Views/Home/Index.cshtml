@@ -1,0 +1,45 @@
+﻿@model NoteModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+<link href="~/css/card.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+
+<div class="row">
+    @foreach (var item in Model.NoteList)
+    {
+        <div class="container">
+            <h1>News Card</h1>
+            <div class="cardcontainer">
+                <div class="photo">
+                    <img src="https://images.pexels.com/photos/2346006/pexels-photo-2346006.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500">
+                    <div class="photos">Photos</div>
+                </div>
+                <div class="content">
+                    <p class="txt4">@item.Title</p>
+                    @*<p class="txt5">@item.Text</p>*@
+                    <p class="txt2">New York, the largest city in the U.S., is an architectural marvel with plenty of historic monuments, magnificent buildings and countless dazzling skyscrapers.</p>
+                </div>
+                <div class="footer">
+                    <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>Like</span></a></p>
+                    <p class="txt3"><i class="far fa-clock"></i>@item.CreateOn <span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        document.getElementById("heart").onclick = function () {
+            document.querySelector(".fa-gratipay").style.color = "#E74C3C";
+        };
+    });
+</script>

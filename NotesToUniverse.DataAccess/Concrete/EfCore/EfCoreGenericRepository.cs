@@ -10,42 +10,58 @@ using NotesToUniverse.Entities;
 
 namespace NotesToUniverse.DataAccess.Concrete.EfCore
 {
-    public class EfCoreGenericRepository<T> :RepositoryBase, IRepository<T>
+    public class EfCoreGenericRepository<T, TContext> : RepositoryBase, IRepository<T>
     where T : class
+    where TContext : DbContext, new()
     {
 
-        private DbSet<T> _objectSet;
+        //private DbSet<T> _objectSet;
 
-        public EfCoreGenericRepository(DbSet<T> objectSet)
-        {
-            _objectSet = context.Set<T>();
-        }
+        //public EfCoreGenericRepository(DbSet<T> objectSet)
+        //{
+        //    _objectSet = context.Set<T>();
+        //}
 
         public int Delete(T obj)
         {
-            _objectSet.Remove(obj);
-            return Save();
+            using (var context = new TContext())
+            {
+                context.Set<T>().Remove(obj);
+                return context.SaveChanges();
+            }
         }
 
         public T Find(Expression<Func<T, bool>> where)
         {
-            return _objectSet.FirstOrDefault(where);
+            using (var context = new TContext())
+            {
+                return context.Set<T>().FirstOrDefault(where);
+            }
         }
 
-        public int Insert(T obj)
+        public int Create(T obj)
         {
-            _objectSet.Add(obj);
-            return Save();
+            using (var context = new TContext())
+            {
+                context.Set<T>().Add(obj);
+                return context.SaveChanges();
+            }
         }
 
         public List<T> List()
         {
-            return _objectSet.ToList();
+            using (var context = new TContext())
+            {
+                return context.Set<T>().ToList();
+            }
         }
 
         public List<T> List(Expression<Func<T, bool>> where)
         {
-            return _objectSet.Where(where).ToList();
+            using (var context = new TContext())
+            {
+                return context.Set<T>().Where(where).ToList();
+            }
         }
 
         public IQueryable<T> ListQueryable()
@@ -53,14 +69,13 @@ namespace NotesToUniverse.DataAccess.Concrete.EfCore
             throw new NotImplementedException();
         }
 
-        public int Save()
-        {
-            return context.SaveChanges();
-        }
-
         public int Update(T obj)
         {
-            return Save();
+            using (var context = new TContext())
+            {
+                context.Entry(obj).State = EntityState.Modified;
+                return context.SaveChanges();
+            }
         }
     }
 }

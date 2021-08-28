@@ -8,6 +8,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
+using NotesToUniverse.Business.Abstract;
+using NotesToUniverse.Business.Concrete;
+using NotesToUniverse.DataAccess.Abstract;
+using NotesToUniverse.DataAccess.Concrete.EfCore;
 
 namespace NotesToUniverse.WebUI
 {
@@ -23,15 +30,34 @@ namespace NotesToUniverse.WebUI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddRazorPages();
+            //services.AddRazorPages();
+
+            services.AddScoped<INoteDal, EfCoreNoteDal>();
+            services.AddScoped<ICategoryDal, EfCoreCategoryDal>();
+
+            services.AddScoped<INoteService, NoteManager>();
+            services.AddScoped<ICategoryService, CategoryManager>();
+
+            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+
+                // Create database
+                //using (var context = new DatabaseContext())
+                //{
+                //    //context.Database.EnsureCreated();
+                //    //context.Database.Migrate();
+                //}
+
+                // create fake data
+                SeedDatabase.Seed();
             }
             else
             {
@@ -49,7 +75,8 @@ namespace NotesToUniverse.WebUI
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapRazorPages();
+                //endpoints.MapRazorPages();
+                endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
             });
         }
     }

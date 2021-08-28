@@ -8,12 +8,14 @@ using System.Threading.Tasks;
 
 namespace NotesToUniverse.Entities
 {
-    [Table("Comments")]
+
     public class Comment : MyEntityBase
     {
-        [Required,StringLength(600)]
+        public int Id { get; set; }
         public string Text { get; set; }
-        public Note Note { get; set; } // Every comment for one universnote
         public string Owner { get; set; } // one user wrote one comment
+
+        public int NoteId { get; set; }
+        public Note Note { get; set; } // Every comment for one universnote
     }
 }

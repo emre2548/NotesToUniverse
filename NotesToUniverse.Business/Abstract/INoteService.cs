@@ -5,10 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using NotesToUniverse.Entities;
 
-namespace NotesToUniverse.DataAccess.Abstract
+namespace NotesToUniverse.Business.Abstract
 {
-    public interface ICategoryDal : IRepository<Category>
+    public interface INoteService
     {
-        //List<Category> GetCategories();
+        List<Note> GetAllNote();
     }
 }

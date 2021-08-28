@@ -9,19 +9,14 @@ using System.Threading.Tasks;
 
 namespace NotesToUniverse.Entities
 {
-    [Table("Categories")]
+
     public class Category : MyEntityBase
     {
-        [Required,StringLength(60),DisplayName("Kategori")]
+        public int Id { get; set; }
         public string Title { get; set; }
-        [StringLength(2000),DisplayName("Açıklama")]
         public string Description { get; set; }
 
-        public virtual List<Note> Notes { get; set; } // category can have more than one note
+        public List<NoteCategory> NoteCategories { get; set; }
 
-        public Category()
-        {
-            Notes = new List<Note>();
-        }
     }
 }

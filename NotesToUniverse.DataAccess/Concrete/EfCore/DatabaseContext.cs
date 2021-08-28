@@ -12,20 +12,23 @@ namespace NotesToUniverse.DataAccess.Concrete.EfCore
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=ShopApp;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Database=NoteToUniverse;Trusted_Connection=true");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Note>()
-                .HasMany(n => n.Comments)
-                .WithOne(c => c.Note).IsRequired()
-                .OnDelete(DeleteBehavior.SetNull);
+            //modelBuilder.Entity<Note>()
+            //    .HasMany(n => n.Comments)
+            //    .WithOne(c => c.Note).IsRequired()
+            //    .OnDelete(DeleteBehavior.SetNull);
 
-            modelBuilder.Entity<Note>()
-                .HasMany(n => n.Likes)
-                .WithOne(c => c.Note).IsRequired()
-                .OnDelete(DeleteBehavior.SetNull);
+            //modelBuilder.Entity<Note>()
+            //    .HasMany(n => n.Likes)
+            //    .WithOne(c => c.Note).IsRequired()
+            //    .OnDelete(DeleteBehavior.SetNull);
+
+            modelBuilder.Entity<NoteCategory>()
+                .HasKey(n => new {n.CategoryId, n.NoteId});
         }
 
         public DbSet<Note> Notes { get; set; }
