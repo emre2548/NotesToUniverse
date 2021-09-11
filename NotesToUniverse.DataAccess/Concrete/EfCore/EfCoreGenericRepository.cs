@@ -66,7 +66,10 @@ namespace NotesToUniverse.DataAccess.Concrete.EfCore
 
         public IQueryable<T> ListQueryable()
         {
-            throw new NotImplementedException();
+            using (var context = new DatabaseContext())
+            {
+                return context.Set<T>().AsQueryable();
+            }
         }
 
         public int Update(T obj)

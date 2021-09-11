@@ -14,6 +14,9 @@ namespace NotesToUniverse.WebUI.Models
         public int LikeCount { get; set; }
         public int CategoryId { get; set; }
 
+
+
+
         public List<Category> SelectedCategoies = new List<Category>();
 
         public List<Comment> SelectedNoteComments = new List<Comment>();
@@ -22,5 +25,11 @@ namespace NotesToUniverse.WebUI.Models
 
         public List<Note> NoteList = new List<Note>();
 
+
+        public NoteModel()
+        {
+            SelectedNoteComments = new List<Comment>();
+            SelectedNoteLikes = new List<Liked>();
+        }
     }
 }

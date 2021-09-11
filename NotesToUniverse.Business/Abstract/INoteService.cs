@@ -10,5 +10,8 @@ namespace NotesToUniverse.Business.Abstract
     public interface INoteService
     {
         List<Note> GetAllNote();
+
+        IOrderedQueryable<Note> GetMostLikesNotes();
+
     }
 }

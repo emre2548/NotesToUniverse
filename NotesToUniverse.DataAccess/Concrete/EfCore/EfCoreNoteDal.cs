@@ -11,12 +11,13 @@ namespace NotesToUniverse.DataAccess.Concrete.EfCore
 {
     public class EfCoreNoteDal : EfCoreGenericRepository<Note, DatabaseContext>, INoteDal
     {
-        //public List<Note> GetAllNote()
-        //{
-        //    using (var context = new DatabaseContext())
-        //    {
-        //        return context.Notes.ToList();
-        //    }
-        //}
+        public IOrderedQueryable<Note> GetMostLikesNotes()
+        {
+            using (var context = new DatabaseContext())
+            {
+                return context.Notes
+                    .OrderByDescending(i => i.LikeCount);
+            }
+        }
     }
 }

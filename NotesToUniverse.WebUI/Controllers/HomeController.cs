@@ -24,5 +24,10 @@ namespace NotesToUniverse.WebUI.Controllers
                 NoteList = _noteService.GetAllNote()
             });
         }
-    }
+
+        //public IActionResult MostLiked()
+        //{
+           
+        //}
+}
 }

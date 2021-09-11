@@ -9,6 +9,6 @@ namespace NotesToUniverse.DataAccess.Abstract
 {
     public interface INoteDal : IRepository<Note>
     {
-        //List<Note> GetAllNote();
+        IOrderedQueryable<Note> GetMostLikesNotes();
     }
 }

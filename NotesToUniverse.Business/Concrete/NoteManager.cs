@@ -23,5 +23,15 @@ namespace NotesToUniverse.Business.Concrete
         {
             return _noteDal.List();
         }
+
+        public IQueryable<Note> GetAllNoteQueryable()
+        {
+            return _noteDal.ListQueryable();
+        }
+
+        public IOrderedQueryable<Note> GetMostLikesNotes()
+        {
+            return _noteDal.GetMostLikesNotes();
+        }
     }
 }

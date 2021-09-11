@@ -24,6 +24,12 @@ namespace NotesToUniverse.Entities
         public List<Liked> Likes { get; set; }
         public List<Comment> Comments { get; set; }
 
+        public Note()
+        {
+            Comments = new List<Comment>();
+            Likes = new List<Liked>();
+        }
+
 
     }
 }
