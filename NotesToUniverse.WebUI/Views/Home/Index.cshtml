@@ -1,45 +1,34 @@
-﻿@model NoteModel
+﻿@model NoteListModel
 @{
     ViewData["Title"] = "Index";
 }
 
 <h1>Index</h1>
 
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
-<link href="~/css/card.css" rel="stylesheet" />
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
-
-<div class="row">
-    @foreach (var item in Model.NoteList)
-    {
-        <div class="container">
-            <h1>News Card</h1>
-            <div class="cardcontainer">
-                <div class="photo">
-                    <img src="https://images.pexels.com/photos/2346006/pexels-photo-2346006.jpeg?auto=format%2Ccompress&cs=tinysrgb&dpr=1&w=500">
-                    <div class="photos">Photos</div>
-                </div>
-                <div class="content">
-                    <p class="txt4">@item.Title</p>
-                    @*<p class="txt5">@item.Text</p>*@
-                    <p class="txt2">@item.Text</p>
-                </div>
-                <div class="footer">
-                    <p><a class="waves-effect waves-light btn" href="#">Read More</a><a id="heart"><span class="like"><i class="fab fa-gratipay"></i>@item.LikeCount</span></a></p>
-                    <p class="txt3"><i class="far fa-clock"></i>@item.CreateOn.ToString("dd-MM-yy HH:mm") <span class="comments"><i class="fas fa-comments"></i>45 Comments</span></p>
-                </div>
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <ul class="list-group">
+                    <li class="list-group-item">24 saat</li>
+                    <li class="list-group-item">7 gün</li>
+                    <li class="list-group-item">1 ay</li>
+                    <li class="list-group-item">6 ay</li>
+                    <li class="list-group-item">1 yıl</li>
+                    <li class="list-group-item">en çok yorum alan</li>
+                </ul>
             </div>
+            <div class="col-md-9">
+                @*<div class="section-heading">
+                    <h2>Latest Products</h2>
+                    <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
+                </div>*@
+            @foreach (var item in Model.Notes)
+            {
+                <partial name="_notes" for="@item"/>
+            }
+            </div>
+
         </div>
-    }
+    </div>
 </div>
-
-
-<script>
-    $(document).ready(function () {
-        document.getElementById("heart").onclick = function () {
-            document.querySelector(".fa-gratipay").style.color = "#E74C3C";
-        };
-    });
-</script>

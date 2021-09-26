@@ -12,4 +12,8 @@
     <ProjectReference Include="..\NotesToUniverse.Business\NotesToUniverse.Business.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Identity\" />
+  </ItemGroup>
+
 </Project>

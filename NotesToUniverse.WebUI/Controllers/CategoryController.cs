@@ -8,26 +8,27 @@ using NotesToUniverse.WebUI.Models;
 
 namespace NotesToUniverse.WebUI.Controllers
 {
-    public class HomeController : Controller
+    public class CategoryController : Controller
     {
         private INoteService _noteService;
 
-        public HomeController(INoteService noteService)
+        public CategoryController(INoteService noteService)
         {
             _noteService = noteService;
         }
 
+
         public IActionResult Index()
+        {
+            return View();
+        }
+
+        public IActionResult List()
         {
             return View(new NoteListModel()
             {
-                Notes = _noteService.GetAllNote().OrderByDescending(x => x.CreateOn).ToList()
+                Notes = _noteService.GetAllNote()
             });
         }
-
-        //public IActionResult MostLiked()
-        //{
-           
-        //}
-}
+    }
 }

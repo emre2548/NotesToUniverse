@@ -3,20 +3,38 @@
 <html>
 
 <head>
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <title>@ViewBag.Title</title>
-    <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+    <link href="~/assets/css/fontawesome.css" rel="stylesheet" />
+    <link href="~/assets/css/templatemo-sixteen.css" rel="stylesheet" />
+    <link href="~/assets/css/owl.css" rel="stylesheet" />
 </head>
+<partial name="_navbar" />
 <body>
     <div class="container">
-        <partial name="_navbar" />
 
         @RenderBody()
 
     </div>
 
-    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
-    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <partial name="_footer" />
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Additional Scripts -->
+    <script src="~/assets/js/custom.js"></script>
+    <script src="~/assets/js/owl.js"></script>
+    <script src="~/assets/js/slick.js"></script>
+    <script src="~/assets/js/isotope.js"></script>
+    <script src="~/assets/js/accordions.js"></script>
 
 </body>
+
+
 </html>
