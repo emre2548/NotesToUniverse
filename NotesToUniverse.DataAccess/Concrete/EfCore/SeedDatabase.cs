@@ -51,9 +51,11 @@ namespace NotesToUniverse.DataAccess.Concrete.EfCore
 
         private static Category[] Categories =
         {
-            new Category() {Title = "Kategori 1", Description = "Test Kategorisi 1. Başlık", CreateOn = DateTime.Now,ModifiedOn = DateTime.Now,ModifiedUserName = "12345"},
-            new Category() {Title = "Kategori 2", Description = "Test kategorisi 2. başlık", CreateOn = DateTime.Now,ModifiedOn = DateTime.Now,ModifiedUserName = "12346"},
-            new Category() {Title = "Kategori 3", Description = "Test kategorisi 3. başlık", CreateOn = DateTime.Now,ModifiedOn = DateTime.Now,ModifiedUserName = "12347"}
+            new Category() {Title = "24 saat", Description = "Son 24 Saatte en çok beğenilenler"},
+            new Category() {Title = "7 Gün", Description = "Son 7 günde en çok beğenilenler"},
+            new Category() {Title = "1 Ay", Description = "Son 1 Ay da en çok beğenilenler"},
+            new Category() {Title = "Tüm Zamanlar", Description = "Tüm zamanların en çok beğenilenleri"},
+            new Category() {Title = "En Çok Yorum alanlar", Description = "En çok yorum alanlar"}
         };
 
         private static NoteCategory[] NoteCategories =

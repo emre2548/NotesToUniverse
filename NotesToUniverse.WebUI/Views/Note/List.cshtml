@@ -1,0 +1,16 @@
+﻿@model NoteListModel
+
+
+<div class="row" >
+    <div class="col-md-3">
+        @await Component.InvokeAsync("CategoryList")
+    </div>
+    <div class="col-md-9">
+        <div class="row">
+            @foreach (Note item in Model.Notes)
+            {
+                <partial name="_notes" for="@item"/>
+            }
+        </div>
+    </div>
+</div>

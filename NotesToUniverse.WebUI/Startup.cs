@@ -33,9 +33,9 @@ namespace NotesToUniverse.WebUI
             //services.AddRazorPages();
 
             services.AddScoped<INoteDal, EfCoreNoteDal>();
-            services.AddScoped<ICategoryDal, EfCoreCategoryDal>();
-
             services.AddScoped<INoteService, NoteManager>();
+
+            services.AddScoped<ICategoryDal, EfCoreCategoryDal>();
             services.AddScoped<ICategoryService, CategoryManager>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Latest);
@@ -77,6 +77,11 @@ namespace NotesToUniverse.WebUI
             {
                 //endpoints.MapRazorPages();
                 endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}");
+
+                endpoints.MapControllerRoute(
+                    "note",
+                    "note/{category?}",
+                    new{controller="Note",action="List"});
             });
         }
     }

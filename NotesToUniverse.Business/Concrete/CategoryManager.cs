@@ -19,7 +19,7 @@ namespace NotesToUniverse.Business.Concrete
         }
 
 
-        public List<Category> GetCategories()
+        public List<Category> GetAllCategories()
         {
             return _categoryDal.List();
         }

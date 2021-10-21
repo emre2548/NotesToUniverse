@@ -10,8 +10,8 @@ using NotesToUniverse.DataAccess.Concrete.EfCore;
 namespace NotesToUniverse.DataAccess.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20210831175906_UpdateDatabase")]
-    partial class UpdateDatabase
+    [Migration("20210926105903_CreateDatabase")]
+    partial class CreateDatabase
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -28,16 +28,7 @@ namespace NotesToUniverse.DataAccess.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<DateTime>("CreateOn")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("ModifiedOn")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("ModifiedUserName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Title")

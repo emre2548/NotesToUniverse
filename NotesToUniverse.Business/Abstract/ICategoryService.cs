@@ -9,6 +9,7 @@ namespace NotesToUniverse.Business.Abstract
 {
     public interface ICategoryService
     {
-        List<Category> GetCategories();
+        List<Category> GetAllCategories();
+
     }
 }

@@ -10,5 +10,6 @@ namespace NotesToUniverse.DataAccess.Abstract
     public interface INoteDal : IRepository<Note>
     {
         IOrderedQueryable<Note> GetMostLikesNotes();
+        List<Note> GetNotesByCategory(string category);
     }
 }
