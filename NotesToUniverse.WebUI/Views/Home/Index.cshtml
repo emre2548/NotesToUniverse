@@ -3,25 +3,17 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
-@*<div class="latest-products">*@
-    @*<div class="container">*@
-    <div class="row">
-        @*<div class="col-md-3">*@
+<div class="row">
+    <div class="col-md-3">
         @await Component.InvokeAsync("CategoryList")
-        @*</div>*@
-        <div class="col-md-9">
-            @*<div class="section-heading">
-                    <h2>Latest Products</h2>
-                    <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
-                </div>*@
-            @foreach (var item in Model.Notes)
-                {
-                    <partial name="_notes" for="@item" />
-                }
-            </div>
-
     </div>
-    @*</div>*@
-@*</div>*@
+    <div class="col-md-9">
+        @foreach (var item in Model.Notes)
+        {
+            <partial name="_notes" for="@item" />
+        }
+    </div>
+
+</div>
+
+

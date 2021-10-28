@@ -11,5 +11,7 @@ namespace NotesToUniverse.DataAccess.Abstract
     {
         IOrderedQueryable<Note> GetMostLikesNotes();
         List<Note> GetNotesByCategory(string category);
+
+        void Create(Note entity);
     }
 }

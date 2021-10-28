@@ -29,6 +29,11 @@ namespace NotesToUniverse.Business.Concrete
             return _noteDal.GetNotesByCategory(category);
         }
 
+        public void Create(Note entity)
+        {
+            _noteDal.Create(entity);
+        }
+
         public IQueryable<Note> GetAllNoteQueryable()
         {
             return _noteDal.ListQueryable();

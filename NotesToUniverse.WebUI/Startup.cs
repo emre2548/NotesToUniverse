@@ -82,6 +82,11 @@ namespace NotesToUniverse.WebUI
                     "note",
                     "note/{category?}",
                     new{controller="Note",action="List"});
+
+                endpoints.MapControllerRoute(
+                    "createnote",
+                    "admin/createnote",
+                    new { controller = "Admin", action = "CreateNote" });
             });
         }
     }

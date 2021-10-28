@@ -36,5 +36,26 @@ namespace NotesToUniverse.DataAccess.Concrete.EfCore
                 return notes.ToList();
             }
         }
+
+        public void Create(Note entity)
+        {
+            using (var context = new DatabaseContext())
+            {
+                if (entity != null)
+                {
+                    Note note = new Note();
+                    note.Title = entity.Title;
+                    note.Text = entity.Text;
+                    note.CreateOn = entity.CreateOn;
+                    note.Owner = entity.Owner;
+
+                    context.Notes.Add(note);
+                    context.SaveChanges();
+                }
+            }
+        }
+
+
+
     }
 }
