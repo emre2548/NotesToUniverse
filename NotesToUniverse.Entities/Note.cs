@@ -17,8 +17,7 @@ namespace NotesToUniverse.Entities
         public bool IsDraft { get; set; }
         public int LikeCount { get; set; }
         public string Owner { get; set; }
-        // TODO image will add
-        //public string Image { get; set; }
+        public string Image { get; set; }
 
         public List<NoteCategory> NoteCategories { get; set; }
         public List<Liked> Likes { get; set; }

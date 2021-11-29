@@ -48,6 +48,7 @@ namespace NotesToUniverse.DataAccess.Concrete.EfCore
                     note.Text = entity.Text;
                     note.CreateOn = entity.CreateOn;
                     note.Owner = entity.Owner;
+                    note.Image = entity.Image;
 
                     context.Notes.Add(note);
                     context.SaveChanges();

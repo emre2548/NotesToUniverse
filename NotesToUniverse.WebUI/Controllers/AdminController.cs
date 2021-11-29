@@ -34,7 +34,13 @@ namespace NotesToUniverse.WebUI.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateNote(NoteModel Note){
+        public IActionResult CreateNote(NoteModel Note)
+        {
+            /*
+             TODO Add state validation 
+            TODO Add owner 
+             */
+
             var entity = new Note()
             {
                 Title = Note.Title,

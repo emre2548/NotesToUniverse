@@ -13,7 +13,7 @@ namespace NotesToUniverse.WebUI.Models
         public bool IsDraft { get; set; }
         public int LikeCount { get; set; }
         public int CategoryId { get; set; }
-
+        public string Image { get; set; }
 
 
 
